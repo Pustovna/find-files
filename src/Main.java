@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
-        // определяем объект для каталога
-        File dir = new File("C://Users//sampl//SCE//OOP");
+    public static void main(String[] args)  {
+        String folderPath = "c://users//sampl//sce//oop"; // write here your path
+
+        File dir = new File(folderPath);
         List<String> wordsToFind = new ArrayList<>(); // arr for words
         wordsToFind.add("***require");
         List<String> files  = new ArrayList<>();
@@ -23,7 +22,7 @@ public class Main {
 
 
         try{
-            File file = new File("C://Users//sampl//SCE//result.txt");
+            File file = new File(folderPath + "//result.txt");
             if (file.createNewFile()){ // return true
                 System.out.println("New file is created!!");
             }else{ // вернуть false
@@ -33,7 +32,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        Path path = Paths.get("C://Users//sampl//SCE//result.txt");
+        Path path = Paths.get(folderPath + "//result.txt");
 //        WordSearch.sortByRequire(all);
 
         for (String item : all) {

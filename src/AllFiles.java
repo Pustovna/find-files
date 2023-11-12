@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import java.util.List;
 
 public class AllFiles {
@@ -25,13 +24,12 @@ public class AllFiles {
 
     public static String processFile(String filePath) {
         Path path = Paths.get(filePath);
-        String content = new String();
         try {
-            content = Files.readString(path);
+            String content = Files.readString(path);
             return content;
         } catch (IOException e) {
             e.printStackTrace();
-            return content;
+            return "";
         }
     }
 
