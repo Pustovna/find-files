@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,7 @@ public class WordSearch {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] wordsInLine = line.split("\\s+");  // Разделение строки на слова по пробелам
+                String[] wordsInLine = line.split("\\s+");
 
                 for (String oneEx : wordsInLine) {
                     if (oneEx.contains(word)) {
@@ -36,14 +34,12 @@ public class WordSearch {
                 return true;
             }
         }
-//        Path fileReq = Paths.get(requirePath);
         return false;
     }
     public static void sortByRequire(List<String> files) {
         for (String item : files) {
             int startIndex = item.indexOf(" ") + 1;
             String path = item.substring(startIndex);
-//            String textInFile = AllFiles.processFile(result) + '\n';
             List<String> req = findWordsInFile(path, "***require");
             for (String pathReq : req) {
                 int oneIndex = pathReq.indexOf("‘") + 1;

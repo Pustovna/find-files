@@ -23,9 +23,9 @@ public class Main {
 
         try{
             File file = new File(folderPath + "//result.txt");
-            if (file.createNewFile()){ // return true
+            if (file.createNewFile()){
                 System.out.println("New file is created!!");
-            }else{ // вернуть false
+            }else{
                 System.out.println("file already exists.");
             }
         } catch (IOException e) {
@@ -33,7 +33,6 @@ public class Main {
         }
 
         Path path = Paths.get(folderPath + "//result.txt");
-//        WordSearch.sortByRequire(all);
 
         for (String item : all) {
             System.out.println(item);
